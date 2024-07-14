@@ -1,7 +1,4 @@
-# 🧊 Template Project Next.js (Canary Version), Prisma ORM, and AWS S3 for Cloudflare R2
-
-> [!NOTE]
-> Template Project Next.js (Canary Version), Prisma ORM, and AWS S3 for Cloudflare R2 for Bootcamp devscale.id.
+# Course Connect - Seraphic
 
 This is an example template, already set up:
 
