@@ -11,10 +11,10 @@ datasource db {
 model User {
   id        String     @id @default(cuid())
   email     String     @unique
-  password  String
+  password  String?
   fullName  String
-  role      String
-  contact   String
+  role      String?
+  contact   String?
   courses   Course[]
   feedbacks Feedback[]
 }
@@ -42,11 +42,12 @@ model Category {
 }
 
 model Feedback {
-  id       String @id @default(cuid())
+  id       String  @id @default(cuid())
+  image    String
   rating   Int
-  comment  String
+  comment  String?
   userId   String
-  user     User   @relation(fields: [userId], references: [id])
+  user     User    @relation(fields: [userId], references: [id])
   courseId String
-  course   Course @relation(fields: [courseId], references: [id])
+  course   Course  @relation(fields: [courseId], references: [id])
 }
