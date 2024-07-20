@@ -21,12 +21,13 @@ model User {
 
 model Course {
   id           String     @id @default(cuid())
-  image        String
+  image        String?
   title        String
   description  String
   location     String
   price        Int
-  date         DateTime
+  startDate    DateTime
+  endDate      DateTime
   linkPlatform String
   categoryId   String
   category     Category   @relation(fields: [categoryId], references: [id])
