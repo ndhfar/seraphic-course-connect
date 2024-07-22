@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  input {
+    @apply input input-primary w-full;
+  }
+  textarea {
+    @apply textarea textarea-primary w-full;
+  }
+  select {
+    @apply select select-primary w-full;
+  }
+}
