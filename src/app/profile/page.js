@@ -3,7 +3,7 @@ import { Select } from "@/components/select";
 export default function page() {
   return (
     <div>
-      <h1 className="text-3xl font-semibold">Edit Profile</h1>
+      <h1 className="text-3xl font-bold">Edit Profile</h1>
       <form className="flex flex-col">
         <div className="flex mt-4 gap-10">
           <div className="space-y-2 flex-1">
