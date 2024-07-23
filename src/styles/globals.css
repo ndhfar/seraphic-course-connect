@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .input-auth {
+    @apply input input-sm input-bordered input-accent w-full;
+  }
+
+  .select-auth {
+    @apply select select-sm select-bordered select-accent w-full;
+  }
+}
+
+@layer base {
+  option {
+    color: black;
+  }
+}
