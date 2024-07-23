@@ -1,20 +1,48 @@
-import { Select } from "@/components/select";
+import { auth } from "@/libs/auth";
+import { prisma } from "@/utils/prisma";
 
-export default function page() {
+export default async function page() {
+  const user = await auth();
+
+  const userData = await prisma.user.findFirst({
+    where: {
+      id: user.id,
+    },
+  });
+
   return (
     <div>
       <h1 className="text-3xl font-bold">Edit Profile</h1>
-      <form className="flex flex-col">
-        <div className="flex mt-4 gap-10">
-          <div className="space-y-2 flex-1">
-            <InputTemplate title="Full Name" type="text" name="fullName" />
-            <InputTemplate title="Email" type="email" name="email" />
-            <InputTemplate title="Password" type="password" name="password" />
-          </div>
-          <div className="space-y-2 flex-1">
-            <InputTemplate title="Phone Number" type="tel" name="contact" />
-            <Select />
-          </div>
+      <form className="flex flex-col mt-4 space-y-3">
+        <InputTemplate
+          title="Full Name"
+          type="text"
+          name="fullName"
+          defaultValue={userData?.fullName}
+        />
+        <InputTemplate
+          title="Email"
+          type="email"
+          name="email"
+          defaultValue={userData?.email}
+        />
+
+        <InputTemplate
+          title="Phone Number"
+          type="tel"
+          name="contact"
+          defaultValue={userData?.contact}
+        />
+        <div className="flex flex-col">
+          <label className="font-medium text-[#858585] text-sm">Role</label>
+          <select
+            className="w-full select select-sm select-accent select-bordered text-sm"
+            name="role"
+            defaultValue={userData?.role}
+          >
+            <option>Author</option>
+            <option>Participant</option>
+          </select>
         </div>
         <div className="flex">
           <button className="ml-auto btn btn-primary btn-sm">Save</button>
@@ -24,7 +52,7 @@ export default function page() {
   );
 }
 
-const InputTemplate = ({ title, type, name }) => {
+const InputTemplate = ({ title, type, name, defaultValue }) => {
   return (
     <div className="flex flex-col">
       <label className="font-medium text-[#858585] text-sm">{title}</label>
@@ -33,6 +61,7 @@ const InputTemplate = ({ title, type, name }) => {
         name={name}
         placeholder={title}
         className="w-full input input-sm input-accent input-bordered"
+        defaultValue={defaultValue}
       />
     </div>
   );

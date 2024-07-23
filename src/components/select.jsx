@@ -2,18 +2,18 @@
 
 import { useState } from "react";
 
-export const Select = () => {
-  const [selected, setSelected] = useState("");
+export const Select = ({ defaultValue }) => {
+  const [selected, setSelected] = useState(defaultValue || "");
 
   return (
     <div className="flex flex-col">
-      <label className="font-medium text-[#858585]">Role</label>
+      <label className="font-medium text-[#858585] text-sm">Role</label>
       <select
         className={`w-full select select-sm select-accent select-bordered text-sm ${
           selected == "" ? "text-[#9ca3af]" : "text-black"
         }`}
         name="role"
-        value={selected}
+        defaultValue={selected}
         onChange={(e) => setSelected(e.target.value)}
       >
         <option value="" disabled hidden>
