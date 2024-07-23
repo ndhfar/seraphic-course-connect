@@ -53,7 +53,7 @@ export default async function RegisterAction(_, formData) {
     console.error(error);
     return {
       success: false,
-      message: "An error occurred while creating the user.",
+      message: "Register failed.",
     };
   }
 
