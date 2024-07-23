@@ -2,7 +2,6 @@
 
 import { prisma } from "@/utils/prisma";
 import { auth } from "@/libs/auth";
-import { findUserByEmail } from "@/services/user.service";
 
 export default async function UpdateUserDataAction(_, formData) {
   const userInfo = await auth();
@@ -30,14 +29,6 @@ export default async function UpdateUserDataAction(_, formData) {
   }
 
   try {
-    // * Check email in database
-    if (await findUserByEmail(email)) {
-      return {
-        success: false,
-        message: "Email is already registered.",
-      };
-    }
-
     // * Update user in database
     await prisma.user.update({
       where: {
