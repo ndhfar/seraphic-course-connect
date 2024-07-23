@@ -44,7 +44,7 @@ export default async function UpdateUserDataAction(_, formData) {
 
     return {
       success: true,
-      message: "Edit profile successful.",
+      message: "Edit profile successful. Refresh this page.",
     };
   } catch (error) {
     console.log(error);
