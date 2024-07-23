@@ -53,7 +53,7 @@ export default async function LoginAction(_, formData) {
     console.error(error);
     return {
       succes: false,
-      message: "An error occurred during login.",
+      message: "Login failed.",
     };
   }
 
