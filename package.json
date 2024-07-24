@@ -19,7 +19,8 @@
     "jsonwebtoken": "^9.0.2",
     "next": "15.0.0-canary.63",
     "react": "19.0.0-rc.0",
-    "react-dom": "19.0.0-rc.0"
+    "react-dom": "19.0.0-rc.0",
+    "solar-icon-set": "^1.0.0"
   },
   "devDependencies": {
     "daisyui": "^4.12.10",
