@@ -51,5 +51,5 @@ export async function EditCourseAction(_, formData) {
 
   //console dulu karena blm ada page coursenya
   revalidatePath("/dashboard/[courseId]/editCourse", "page");
-  return "Berhasil di edit";
+  return "Succesfully edited";
 }

@@ -49,5 +49,6 @@ export async function NewCourseAction(_, formData) {
 
   //console dulu karena blm ada page coursenya
   console.log(newCourse);
-  return "Berhasil ditambahkan kedatabase";
+  // redirect ke single page
+  return "Succesfully created to database";
 }
