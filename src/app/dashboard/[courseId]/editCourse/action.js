@@ -42,7 +42,18 @@ export async function EditCourseAction(_, formData) {
       },
     },
   });
-
+  if (
+    !title ||
+    !description ||
+    !category ||
+    !price ||
+    !location ||
+    !linkPlatform ||
+    !startDate ||
+    !endDate
+  ) {
+    return "Please fill al the fields";
+  }
   //update data
 
   //logic r2

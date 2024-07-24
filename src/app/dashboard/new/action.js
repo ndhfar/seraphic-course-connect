@@ -47,6 +47,20 @@ export async function NewCourseAction(_, formData) {
   //kategori tambahin manual lewat action
   //image tamabhin r2
 
+  if (
+    !image ||
+    !title ||
+    !description ||
+    !category ||
+    !price ||
+    !location ||
+    !linkPlatform ||
+    !startDate ||
+    !endDate
+  ) {
+    return "Please fill al the fields";
+  }
+
   //console dulu karena blm ada page coursenya
   console.log(newCourse);
   // redirect ke single page
