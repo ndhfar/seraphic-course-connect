@@ -1,10 +1,10 @@
-"use client";
 import Image from "next/image";
 import { CalendarMark } from "solar-icon-set/time";
 import { MapPointWave } from "solar-icon-set/maplocation";
 import { MoneyBag } from "solar-icon-set/money";
 import { LinkCircle } from "solar-icon-set/textformatting";
-import { StarCircle } from "solar-icon-set/astronomy";
+
+import FeedbackCard from "./createFeedback";
 
 export const PageCourse = ({ singleCourse }) => {
   const formatDate = (date) => {
@@ -24,11 +24,11 @@ export const PageCourse = ({ singleCourse }) => {
     <main className="m-9">
       {/* image, category, title, nama user */}
       <div className="grid grid-cols-2 gap-5">
-        <div className="col-span-1 bg-slate-300 h-80">
+        <div className="col-span-1 flex justify-center">
           {/* <Image
             alt="course image"
             src={`${process.env.R2_PUBLIC_URL}/courseconnect/${singleCourse.id}/${singleCourse.image}`}
-            width={600}
+            width={350}
             height={400}
           /> */}
         </div>
@@ -72,26 +72,7 @@ export const PageCourse = ({ singleCourse }) => {
       </div>
 
       {/* container feedback */}
-      <div>
-        <div className="flex">
-          <StarCircle size={36} />
-          <h2 className="font-bold text-xl">Rating</h2>
-          <button className="btn btn-wide btn-primary">add feedback</button>
-        </div>
-
-        <div className="bg-neutral">
-          <div>
-            <img src="" alt="" />
-            image user
-            <h3>nama user</h3>
-            <h3>rating</h3>
-          </div>
-          <div>
-            <h4>komentar feedback</h4>
-            <img src="" alt="" />
-          </div>
-        </div>
-      </div>
+      <FeedbackCard />
     </main>
     //footer
   );
