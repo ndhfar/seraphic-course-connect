@@ -7,12 +7,11 @@ export default async function UpdateUserDataAction(_, formData) {
   const userInfo = await auth();
 
   const fullName = formData.get("fullName");
-  const email = formData.get("email");
   const contact = formData.get("contact");
   const role = formData.get("role");
 
   // * Handle empty input
-  if (!fullName || !email || !contact || !role) {
+  if (!fullName || !contact || !role) {
     return {
       success: false,
       message: "All fields are required.",
@@ -36,7 +35,6 @@ export default async function UpdateUserDataAction(_, formData) {
       },
       data: {
         fullName,
-        email,
         contact,
         role,
       },
