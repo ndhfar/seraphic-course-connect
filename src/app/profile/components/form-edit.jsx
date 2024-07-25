@@ -33,12 +33,20 @@ export const FormEditProfile = ({ userData }) => {
         <div className="flex flex-col">
           <label className="font-medium text-[#858585] text-sm">Role</label>
           <select
-            className="w-full select select-sm select-accent select-bordered text-sm"
             name="role"
-            defaultValue={userData?.role}
+            defaultValue={userData?.role || ""}
+            className={`w-full select select-sm select-accent select-bordered text-sm ${
+              userData?.role === null ? "text-[#9ca3af]" : ""
+            }`}
+            onChange={(e) => {
+              e.target.classList.toggle("text-[#9ca3af]", !e.target.value);
+            }}
           >
-            <option>Author</option>
-            <option>Participant</option>
+            <option value="" disabled hidden className="placeholder-gray">
+              Role
+            </option>
+            <option value="author">Author</option>
+            <option value="participant">Participant</option>
           </select>
         </div>
         <div className="flex">
@@ -72,6 +80,7 @@ const InputTemplate = ({ title, type, name, defaultValue }) => {
         placeholder={title}
         className="w-full input input-sm input-accent input-bordered"
         defaultValue={defaultValue}
+        disabled={name === "email" ? true : false}
       />
     </div>
   );
