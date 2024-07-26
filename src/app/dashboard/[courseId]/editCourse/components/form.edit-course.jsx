@@ -87,7 +87,6 @@ export const FormEditCourse = ({ categories, course }) => {
                       type="date"
                       placeholder="Date"
                       defaultValue={startDate}
-                      // defaultValue={new Date(course.startDate).toDateString()}
                     />
                   </div>
                   <div className="col-span-1">
