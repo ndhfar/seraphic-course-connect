@@ -1,7 +1,6 @@
 "use server";
 
 import { createUser } from "@/services/auth.services";
-import { redirect } from "next/navigation";
 import { findUserByEmail } from "@/services/user.service";
 
 export default async function RegisterAction(_, formData) {
@@ -57,5 +56,8 @@ export default async function RegisterAction(_, formData) {
     };
   }
 
-  redirect("/");
+  return {
+    success: true,
+    message: "Register success. Please login.",
+  };
 }

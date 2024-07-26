@@ -78,6 +78,11 @@ export default function Home() {
             {state.message}
           </div>
         ) : null}
+        {state?.success === true ? (
+          <div className="bg-green-50 text-success text-center text-sm">
+            {state.message}
+          </div>
+        ) : null}
       </section>
     </main>
   );
