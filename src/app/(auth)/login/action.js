@@ -50,7 +50,7 @@ export default async function LoginAction(_, formData) {
 
     cookies().set("token", jwtToken, { httpOnly: true });
   } catch (error) {
-    console.error(error);
+    console.log(error);
     return {
       succes: false,
       message: "Login failed.",
