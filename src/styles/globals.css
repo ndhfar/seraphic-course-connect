@@ -5,6 +5,19 @@
 @layer components {
   .text-course {
     @apply font-normal text-lg;
+  }
+
+  .input-add-course {
+    @apply input input-primary w-full;
+  }
+
+  .textarea-add-course {
+    @apply textarea textarea-primary w-full;
+  }
+
+  .select-add-course {
+    @apply select select-primary w-full;
+  }
 
     .input-auth {
       @apply input input-sm input-bordered input-accent w-full;
