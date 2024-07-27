@@ -7,6 +7,7 @@ import { ButtonFeedback } from "./components/button-feedback";
 import { auth } from "@/libs/auth";
 import { FeedbackCard } from "./components/feedbackCard";
 import { FormFeedback } from "./components/form-feedback";
+import Link from "next/link";
 
 export default async function Page({ params }) {
   const user = await auth();
