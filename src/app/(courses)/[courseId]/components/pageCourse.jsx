@@ -40,37 +40,41 @@ export const PageCourse = ({ singleCourse }) => {
             {singleCourse.category.name}
           </h4>
           <h1 className="font-medium text-5xl">{singleCourse.title}</h1>
-          <h3>{singleCourse.user.fullName}</h3>
+          <h3 className="text-course">{singleCourse.user.fullName}</h3>
         </div>
       </div>
 
       {/* description */}
       <div className="py-6">
-        <h3>{singleCourse.description}</h3>
+        <h3 className="text-course">{singleCourse.description}</h3>
       </div>
 
       {/* detail info */}
       <div className="space-y-2">
-        <h3 className="font-bold">Detail Information</h3>
+        <h3 className="text-course font-bold">Detail Information</h3>
         <div className="space-y-2">
           <div className="flex gap-4 items-center">
             <CalendarMark size={28} />
-            <h3>
+            <h3 className="text-course">
               {startDate} until {endDate}
             </h3>
           </div>
           <div className="flex gap-4 items-center">
             <MapPointWave size={28} />
-            <h3>{singleCourse.location}</h3>
+            <h3 className="text-course">{singleCourse.location}</h3>
           </div>
           <div className="flex gap-4 items-center">
             <MoneyBag size={28} />
-            <h3>Rp {singleCourse.price.toLocaleString()}</h3>
+            <h3 className="text-course">
+              Rp {singleCourse.price.toLocaleString()}
+            </h3>
           </div>
           <div className="flex gap-4 items-center">
             <LinkCircle size={28} />
             <Link href={`${singleCourse.linkPlatform}`}>
-              <h3 className="text-blue-400">{singleCourse.linkPlatform}</h3>
+              <h3 className="text-blue-400 text-course">
+                {singleCourse.linkPlatform}
+              </h3>
             </Link>
           </div>
         </div>

@@ -69,6 +69,9 @@ export default async function Page({ params }) {
                   ) : (
                     <div className="space-y-2 text-center">
                       Please log in first.
+                      <Link href="/login">
+                        <button>Log in</button>
+                      </Link>
                     </div>
                   )}
                 </div>

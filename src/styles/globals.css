@@ -2,8 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  h3 {
+@layer components {
+  .text-course {
     @apply font-normal text-lg;
   }
 }
