@@ -68,10 +68,12 @@ export default async function Page({ params }) {
                   {user ? (
                     <FormFeedback params={params} />
                   ) : (
-                    <div className="space-y-2 text-center">
+                    <div className="text-center flex justify-between">
                       Please log in first.
                       <Link href="/login">
-                        <button>Log in</button>
+                        <button className="btn btn-primary btn-sm">
+                          Log in
+                        </button>
                       </Link>
                     </div>
                   )}

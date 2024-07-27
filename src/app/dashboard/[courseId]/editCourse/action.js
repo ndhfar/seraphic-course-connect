@@ -1,10 +1,13 @@
 "use server";
 
+import { auth } from "@/libs/auth";
 import { uploadFile } from "@/libs/uploadFile";
 import { prisma } from "@/utils/prisma";
+import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
 export async function EditCourseAction(_, formData) {
+  const user = await auth();
   // ambil data dari form newcourses
   const courseId = formData.get("courseId");
   const title = formData.get("title");
@@ -39,7 +42,7 @@ export async function EditCourseAction(_, formData) {
         },
       },
       user: {
-        connect: { id: "clz3tlrv4000beaxize8wwqx8" },
+        connect: { id: user.id },
       },
     },
   });
@@ -53,7 +56,7 @@ export async function EditCourseAction(_, formData) {
     !startDate ||
     !endDate
   ) {
-    return "Please fill al the fields";
+    return { success: false, message: "Please fill all the fields" };
   }
   //update data
 
@@ -63,5 +66,5 @@ export async function EditCourseAction(_, formData) {
 
   //console dulu karena blm ada page coursenya
   // revalidatePath("/dashboard/[courseId]/editCourse", "page");
-  redirect("/dashboard");
+  redirect(`/${courseId}`);
 }

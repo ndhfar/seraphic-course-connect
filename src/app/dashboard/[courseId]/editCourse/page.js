@@ -1,4 +1,3 @@
-import { PathParamsContext } from "next/dist/shared/lib/hooks-client-context.shared-runtime";
 import { FormEditCourse } from "./components/form.edit-course";
 import { prisma } from "@/utils/prisma";
 

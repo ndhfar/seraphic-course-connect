@@ -1,10 +1,13 @@
 "use client";
 
-import { EditCourseAction, NewCourseAction } from "../action";
+import { EditCourseAction } from "../action";
 import { useActionState } from "react";
 
 export const FormEditCourse = ({ categories, course }) => {
-  const [message, FormEditCourse] = useActionState(EditCourseAction, null);
+  const [state, FormEditCourse, pending] = useActionState(
+    EditCourseAction,
+    null
+  );
 
   const formatDate = (date) => {
     const d = new Date(date);
@@ -18,9 +21,9 @@ export const FormEditCourse = ({ categories, course }) => {
   const endDate = formatDate(course.endDate);
 
   return (
-    <main className="">
+    <main>
       <div className="m-2 py-8 px-10">
-        <h1 className="font-bold text-3xl mb-2">Add your Course</h1>
+        <h1 className="font-bold text-3xl mb-2">Edit your Course</h1>
         <form
           action={FormEditCourse}
           className="space-y-3 grid grid-cols-2 gap-3">
@@ -41,6 +44,7 @@ export const FormEditCourse = ({ categories, course }) => {
             {/* input image */}
             <label className="label-text">Image</label>
             <input
+              required
               accept="image/png"
               name="image"
               type="file"
@@ -143,10 +147,15 @@ export const FormEditCourse = ({ categories, course }) => {
               defaultValue={course.description}></textarea>
           </div>
           <div className="flex justify-end w-full col-span-2">
-            <button className="btn btn-primary btn-wide">Edit Course</button>
+            <button className="btn btn-primary btn-wide" disabled={pending}>
+              Edit Course
+            </button>
           </div>
-
-          <div>{message}</div>
+          {state?.success === false ? (
+            <div className="bg-red-50 text-error text-center text-sm">
+              {state?.message}
+            </div>
+          ) : null}
         </form>
       </div>
     </main>
