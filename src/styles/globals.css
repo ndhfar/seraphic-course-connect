@@ -6,17 +6,18 @@
   .text-course {
     @apply font-normal text-lg;
 
-  .input-auth {
-    @apply input input-sm input-bordered input-accent w-full;
+    .input-auth {
+      @apply input input-sm input-bordered input-accent w-full;
+    }
+
+    .select-auth {
+      @apply select select-sm select-bordered select-accent w-full;
+    }
   }
 
-  .select-auth {
-    @apply select select-sm select-bordered select-accent w-full;
-  }
-}
-
-@layer base {
-  option {
-    color: black;
+  @layer base {
+    option {
+      color: black;
+    }
   }
 }
