@@ -38,7 +38,7 @@ export async function EditCourseAction(_, formData) {
         },
       },
       user: {
-        connect: { id: "clz240b4s0000vy2u1uxlhl3e" },
+        connect: { id: user.id },
       },
     },
   });

@@ -4,7 +4,10 @@ import { NewCourseAction } from "../action";
 import { useActionState } from "react";
 
 export const FormNewCourse = ({ categories }) => {
-  const [message, formAddNewCourse] = useActionState(NewCourseAction, null);
+  const [state, formAddNewCourse, pending] = useActionState(
+    NewCourseAction,
+    null
+  );
 
   return (
     <main className="">
@@ -17,7 +20,12 @@ export const FormNewCourse = ({ categories }) => {
           <div className="col-span-1">
             {/* input title */}
             <label className="label-text">Title</label>
-            <input name="title" type="text" placeholder="Title" />
+            <input
+              className="input-add-course"
+              name="title"
+              type="text"
+              placeholder="Title"
+            />
 
             {/* input image */}
             <label className="label-text">Image</label>
@@ -26,13 +34,13 @@ export const FormNewCourse = ({ categories }) => {
               name="image"
               type="file"
               placeholder="image"
-              className="file-input file-input-bordered file-input-primary w-full"
+              className="file-input file-input-bordered file-input-primary w-full input-add-course"
             />
 
             {/* input category */}
             <div>
               <label className="label-text">Select Category</label>
-              <select name="category">
+              <select className="select-add-course" name="category">
                 {categories.map((c) => {
                   return (
                     <option key={c.id} value={c.id}>
@@ -45,7 +53,12 @@ export const FormNewCourse = ({ categories }) => {
 
             {/* input location */}
             <label className="label-text">Location</label>
-            <input name="location" type="text" placeholder="Location" />
+            <input
+              className="input-add-course"
+              name="location"
+              type="text"
+              placeholder="Location"
+            />
           </div>
 
           {/* col 2 */}
@@ -56,12 +69,22 @@ export const FormNewCourse = ({ categories }) => {
                   <div className="col-span-1">
                     {/* input start date */}
                     <label className="label-text">Start Date</label>
-                    <input name="startDate" type="date" placeholder="Date" />
+                    <input
+                      className="input-add-course"
+                      name="startDate"
+                      type="date"
+                      placeholder="Date"
+                    />
                   </div>
                   <div className="col-span-1">
                     {/* input end date */}
                     <label className="label-text">End Date</label>
-                    <input name="endDate" type="date" placeholder="Date" />
+                    <input
+                      className="input-add-course"
+                      name="endDate"
+                      type="date"
+                      placeholder="Date"
+                    />
                   </div>
                 </div>
               </div>
@@ -69,12 +92,18 @@ export const FormNewCourse = ({ categories }) => {
               <div className="grid col-span-4">
                 {/* input price */}
                 <label className="label-text">Price</label>
-                <input name="price" type="text" placeholder="Price" />
+                <input
+                  className="input-add-course"
+                  name="price"
+                  type="text"
+                  placeholder="Price"
+                />
 
                 {/* input url */}
                 <div>
                   <label className="label-text">Link Platform</label>
                   <input
+                    className="input-add-course"
                     name="linkPlatform"
                     type="url"
                     placeholder="Link Platform"
@@ -91,13 +120,19 @@ export const FormNewCourse = ({ categories }) => {
               name="description"
               placeholder="Description"
               rows="5"
-              className="w-full"></textarea>
+              className="w-full textarea-add-course"></textarea>
           </div>
           <div className="flex justify-end w-full col-span-2">
-            <button className="btn btn-primary btn-wide">Add</button>
+            <button className="btn btn-primary btn-wide" disabled={pending}>
+              Add
+            </button>
           </div>
 
-          <div>{message}</div>
+          {state?.success === false ? (
+            <div className="bg-red-50 text-error text-center text-sm">
+              {state?.message}
+            </div>
+          ) : null}
         </form>
       </div>
     </main>

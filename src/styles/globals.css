@@ -2,14 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  input {
+@layer components {
+  .input-add-course {
     @apply input input-primary w-full;
   }
-  textarea {
+  .textarea-add-course {
     @apply textarea textarea-primary w-full;
   }
-  select {
+  .select-add-course {
     @apply select select-primary w-full;
   }
 }

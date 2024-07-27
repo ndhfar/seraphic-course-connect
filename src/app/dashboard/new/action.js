@@ -2,8 +2,12 @@
 
 import { uploadFile } from "@/libs/uploadFile";
 import { prisma } from "@/utils/prisma";
+import { auth } from "@/libs/auth";
+import { redirect } from "next/navigation";
 
 export async function NewCourseAction(_, formData) {
+  const user = await auth();
+
   // ambil data dari form newcourses
   const title = formData.get("title");
   const image = formData.get("image");
@@ -34,7 +38,7 @@ export async function NewCourseAction(_, formData) {
         },
       },
       user: {
-        connect: { id: "clz240b4s0000vy2u1uxlhl3e" },
+        connect: { id: user.id },
       },
     },
   });
@@ -58,11 +62,12 @@ export async function NewCourseAction(_, formData) {
     !startDate ||
     !endDate
   ) {
-    return "Please fill al the fields";
+    return {
+      success: false,
+      message: "Please fill al the fields",
+    };
   }
 
-  //console dulu karena blm ada page coursenya
-  console.log(newCourse);
   // redirect ke single page
-  return "Succesfully created to database";
+  redirect("/dashboard");
 }

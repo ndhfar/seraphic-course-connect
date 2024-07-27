@@ -31,6 +31,7 @@ export const FormEditCourse = ({ categories, course }) => {
             {/* input title */}
             <label className="label-text">Title</label>
             <input
+              className="input-add-course"
               name="title"
               type="text"
               placeholder="Title"
@@ -50,7 +51,7 @@ export const FormEditCourse = ({ categories, course }) => {
             {/* input category */}
             <div>
               <label className="label-text">Select Category</label>
-              <select name="category">
+              <select className="select-add-course" name="category">
                 {categories.map((c) => {
                   return (
                     <option
@@ -67,6 +68,7 @@ export const FormEditCourse = ({ categories, course }) => {
             {/* input location */}
             <label className="label-text">Location</label>
             <input
+              className="input-add-course"
               name="location"
               type="text"
               placeholder="Location"
@@ -83,6 +85,7 @@ export const FormEditCourse = ({ categories, course }) => {
                     {/* input start date */}
                     <label className="label-text">Start Date</label>
                     <input
+                      className="input-add-course"
                       name="startDate"
                       type="date"
                       placeholder="Date"
@@ -93,6 +96,7 @@ export const FormEditCourse = ({ categories, course }) => {
                     {/* input end date */}
                     <label className="label-text">End Date</label>
                     <input
+                      className="input-add-course"
                       name="endDate"
                       type="date"
                       placeholder="Date"
@@ -106,6 +110,7 @@ export const FormEditCourse = ({ categories, course }) => {
                 {/* input price */}
                 <label className="label-text">Price</label>
                 <input
+                  className="input-add-course"
                   name="price"
                   type="text"
                   placeholder="Price"
@@ -116,6 +121,7 @@ export const FormEditCourse = ({ categories, course }) => {
                 <div>
                   <label className="label-text">Link Platform</label>
                   <input
+                    className="input-add-course"
                     name="linkPlatform"
                     type="url"
                     placeholder="Link Platform"
@@ -133,7 +139,7 @@ export const FormEditCourse = ({ categories, course }) => {
               name="description"
               placeholder="Description"
               rows="5"
-              className="w-full"
+              className="w-full textarea-add-course"
               defaultValue={course.description}></textarea>
           </div>
           <div className="flex justify-end w-full col-span-2">
