@@ -36,9 +36,5 @@ export async function AddFeedbackAction(_, formData) {
   // logic r2
   await uploadFile({ key: image.name, body: image, folder: newFeedback.id });
 
-  // return {
-  //   success: true,
-  //   message: "Add feedback successful",
-  // };
   redirect(`/${courseId}`);
 }

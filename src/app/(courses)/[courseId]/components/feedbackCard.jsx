@@ -33,12 +33,6 @@ export const FeedbackCard = async ({ params }) => {
             </div>
             <h1 className="ml-12">{feedback.comment}</h1>
             <div className="ml-12">
-              {/* <Image
-                  alt="course image"
-                  src={`${process.env.R2_PUBLIC_URL}/courseconnect/${feedback.id}/${feedback.image}`}
-                  width={100}
-                  height={100}
-                /> */}
               <img
                 alt="course image"
                 src={`${process.env.R2_PUBLIC_URL}/courseconnect/${feedback.id}/${feedback.image}`}

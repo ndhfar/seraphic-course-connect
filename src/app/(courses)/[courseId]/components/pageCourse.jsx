@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { CalendarMark } from "solar-icon-set/time";
 import { MapPointWave } from "solar-icon-set/maplocation";
 import { MoneyBag } from "solar-icon-set/money";
@@ -35,13 +34,6 @@ export const PageCourse = ({ singleCourse }) => {
               />
             </div>
           )}
-
-          {/* <Image
-            alt="course image"
-            src={`${process.env.R2_PUBLIC_URL}/courseconnect/${singleCourse.id}/${singleCourse.image}`}
-            width={350}
-            height={400}
-          /> */}
         </div>
         <div className="col-span-1">
           <h4 className="font-semibold text-primary">
