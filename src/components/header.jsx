@@ -1,18 +1,14 @@
-'use server';
-
-import { auth } from '@/libs/auth';
-import Link from 'next/link';
-import { LogoutAction } from '@/app/(landing)/action';
-import { Avatar } from './avatar';
-import { SearchBox } from './searchBox';
+import { auth } from "@/libs/auth";
+import Link from "next/link";
+import { LogoutAction } from "@/app/(landing)/action";
+import { Avatar } from "./avatar";
+import { SearchBox } from "./searchBox";
 
 export const Header = async () => {
   const user = await auth();
 
-  console.log(user);
-
   return (
-    <div className="navbar fixed z-50 bg-base-100 border-b border-gray-300 py-3 px-4 md:px-10 top-0">
+    <div className="navbar bg-base-100 border-b border-gray-300 py-3 px-4 md:px-10">
       {/* Logo */}
       <div className="flex-1">
         <Link href="/" className="text-base font-bold md:text-xl">
@@ -31,10 +27,7 @@ export const Header = async () => {
             <Avatar user={user} />
 
             {/* Dropdown Menu */}
-            <ul
-              tabIndex={0}
-              className="dropdown-content menu bg-base-100 rounded-box w-52 shadow"
-            >
+            <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box w-52 shadow">
               <li>
                 <Link href="/profile">Edit Profile</Link>
               </li>
@@ -52,9 +45,7 @@ export const Header = async () => {
           <>
             <div className="hidden sm:flex gap-2 xl:pl-40 lg:pl-28 md:pl-20 sm:pl-10">
               <Link href="/login">
-                <button className="btn btn-outline btn-primary btn-sm">
-                  Login
-                </button>
+                <button className="btn btn-outline btn-primary btn-sm">Login</button>
               </Link>
               <Link href="register">
                 <button className="btn btn-primary btn-sm">Sign Up</button>
@@ -63,42 +54,23 @@ export const Header = async () => {
 
             {/* Menu for Small Screen */}
             <div className="sm:hidden dropdown dropdown-end">
-              <div
-                tabIndex={0}
-                role="button"
-                className="btn btn-sm m-1 bg-transparent shadow-none border-none"
-              >
+              <div tabIndex={0} role="button" className="btn btn-sm m-1 bg-transparent shadow-none border-none">
                 {/* icon small screen */}
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    fill="currentColor"
-                    d="M18 18v2H6v-2zm3-7v2H3v-2zm-3-7v2H6V4z"
-                  />
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                  <path fill="currentColor" d="M18 18v2H6v-2zm3-7v2H3v-2zm-3-7v2H6V4z" />
                 </svg>
               </div>
 
               {/* dropdown menu login/sign up */}
-              <ul
-                tabIndex={0}
-                className="dropdown-content menu bg-base-100 rounded-box w-52 shadow gap-2"
-              >
+              <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box w-52 shadow gap-2">
                 <li>
                   <Link href="/login">
-                    <button className="btn btn-outline btn-primary w-48 btn-sm">
-                      Login
-                    </button>
+                    <button className="btn btn-outline btn-primary w-48 btn-sm">Login</button>
                   </Link>
                 </li>
                 <li>
                   <Link href="/register">
-                    <button className="btn btn-primary w-48 btn-sm">
-                      Sign Up
-                    </button>
+                    <button className="btn btn-primary w-48 btn-sm">Sign Up</button>
                   </Link>
                 </li>
               </ul>

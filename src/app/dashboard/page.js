@@ -1,10 +1,10 @@
-import { Header } from '@/components/header';
-import { Footer } from '@/components/footer';
-import { prisma } from '@/utils/prisma';
-import { auth } from '@/libs/auth';
-import { CardDashboard } from '@/components/cardDashboard';
-import { redirect } from 'next/navigation';
-import Link from 'next/link';
+import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
+import { prisma } from "@/utils/prisma";
+import { auth } from "@/libs/auth";
+import { CardDashboard } from "@/components/cardDashboard";
+import { redirect } from "next/navigation";
+import Link from "next/link";
 
 export default async function Page() {
   // const user = await auth();
@@ -15,7 +15,7 @@ export default async function Page() {
 
   const courses = await prisma.course.findMany({
     where: {
-      userId: 'clz2492ft0000w4mwf3di7eyr',
+      userId: "clz3tlrv4000beaxize8wwqx8",
     },
   });
 
@@ -33,9 +33,7 @@ export default async function Page() {
         {/* Add Card */}
         <Link href="/dashboard/new">
           <div className="flex justify-center items-center card bg-base-100 w-full shadow-xl">
-            <div className="btn btn-primary btn-outline text-primary w-full h-full">
-              Add Your Course +
-            </div>
+            <div className="btn btn-primary btn-outline text-primary w-full h-full">Add Your Course +</div>
           </div>
         </Link>
       </div>

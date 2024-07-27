@@ -1,26 +1,24 @@
-import { prisma } from '@/utils/prisma';
+"use server";
 
-export async function DeleteCourseAction(courseId) {
+import { prisma } from "@/utils/prisma";
+import { revalidatePath } from "next/cache";
+
+export async function DeleteCourseAction(_, formData) {
+  const courseId = formData.get("courseId");
+
   try {
-    // await prisma.feedback.deleteMany({
-    //   where: { courseId: courseId },
-    // });
-
     await prisma.course.delete({
       where: {
         id: courseId,
       },
     });
-
-    return {
-      success: true,
-      message: 'Course deleted successfully.',
-    };
   } catch (error) {
     console.log(error);
     return {
       success: false,
-      message: 'Failed to delete the course.',
+      message: "Failed to delete the course.",
     };
   }
+
+  revalidatePath("/dashboard");
 }
