@@ -3,8 +3,7 @@ import { CalendarMark } from "solar-icon-set/time";
 import { MapPointWave } from "solar-icon-set/maplocation";
 import { MoneyBag } from "solar-icon-set/money";
 import { LinkCircle } from "solar-icon-set/textformatting";
-
-import FeedbackCard from "./createFeedback";
+import Link from "next/link";
 
 export const PageCourse = ({ singleCourse }) => {
   const formatDate = (date) => {
@@ -18,13 +17,25 @@ export const PageCourse = ({ singleCourse }) => {
   const startDate = formatDate(singleCourse.startDate);
   const endDate = formatDate(singleCourse.endDate);
 
-  console.log(singleCourse);
   return (
-    //header
     <main className="m-9">
       {/* image, category, title, nama user */}
       <div className="grid grid-cols-2 gap-5">
         <div className="col-span-1 flex justify-center">
+          {singleCourse.image === "undefined" ? (
+            <div className="bg-neutral w-full h-80 flex justify-center items-center">
+              No Image
+            </div>
+          ) : (
+            <div>
+              <img
+                alt="course image"
+                src={`${process.env.R2_PUBLIC_URL}/courseconnect/${singleCourse.id}/${singleCourse.image}`}
+                className="w-full"
+              />
+            </div>
+          )}
+
           {/* <Image
             alt="course image"
             src={`${process.env.R2_PUBLIC_URL}/courseconnect/${singleCourse.id}/${singleCourse.image}`}
@@ -50,30 +61,28 @@ export const PageCourse = ({ singleCourse }) => {
       <div className="space-y-2">
         <h3 className="font-bold">Detail Information</h3>
         <div className="space-y-2">
-          <div className="flex gap-4">
+          <div className="flex gap-4 items-center">
             <CalendarMark size={28} />
             <h3>
               {startDate} until {endDate}
             </h3>
           </div>
-          <div className="flex gap-4">
+          <div className="flex gap-4 items-center">
             <MapPointWave size={28} />
             <h3>{singleCourse.location}</h3>
           </div>
-          <div className="flex gap-4">
+          <div className="flex gap-4 items-center">
             <MoneyBag size={28} />
-            <h3>{singleCourse.price}</h3>
+            <h3>Rp {singleCourse.price.toLocaleString()}</h3>
           </div>
-          <div className="flex gap-4">
+          <div className="flex gap-4 items-center">
             <LinkCircle size={28} />
-            <h3>{singleCourse.linkPlatform}</h3>
+            <Link href={`${singleCourse.linkPlatform}`}>
+              <h3 className="text-blue-400">{singleCourse.linkPlatform}</h3>
+            </Link>
           </div>
         </div>
       </div>
-
-      {/* container feedback */}
-      <FeedbackCard />
     </main>
-    //footer
   );
 };
