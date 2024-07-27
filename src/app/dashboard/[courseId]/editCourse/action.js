@@ -2,12 +2,13 @@
 
 import { uploadFile } from "@/libs/uploadFile";
 import { prisma } from "@/utils/prisma";
+import { redirect } from "next/navigation";
 
 export async function EditCourseAction(_, formData) {
   // ambil data dari form newcourses
   const courseId = formData.get("courseId");
   const title = formData.get("title");
-  // const image = formData.get("image"); // delete
+  const image = formData.get("image"); // delete
   const description = formData.get("description");
   const category = formData.get("category");
   const location = formData.get("location");
@@ -25,7 +26,7 @@ export async function EditCourseAction(_, formData) {
     },
     data: {
       title,
-      // image: image.name,
+      image: image.name,
       description,
       location,
       price: Number(price),
@@ -38,7 +39,7 @@ export async function EditCourseAction(_, formData) {
         },
       },
       user: {
-        connect: { id: user.id },
+        connect: { id: "clz3tlrv4000beaxize8wwqx8" },
       },
     },
   });
@@ -57,10 +58,10 @@ export async function EditCourseAction(_, formData) {
   //update data
 
   //logic r2
-  // await uploadFile({ key: image.name, body: image, folder: newCourse.id });
+  await uploadFile({ key: image.name, body: image, folder: newCourse.id });
   //end create data
 
   //console dulu karena blm ada page coursenya
-  revalidatePath("/dashboard/[courseId]/editCourse", "page");
-  return "Succesfully edited";
+  // revalidatePath("/dashboard/[courseId]/editCourse", "page");
+  redirect("/dashboard");
 }

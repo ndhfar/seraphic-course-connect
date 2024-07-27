@@ -39,14 +39,14 @@ export const FormEditCourse = ({ categories, course }) => {
             />
 
             {/* input image */}
-            {/* <label className="label-text">Image</label>
+            <label className="label-text">Image</label>
             <input
               accept="image/png"
               name="image"
               type="file"
               placeholder="image"
               className="file-input file-input-bordered file-input-primary w-full"
-            /> */}
+            />
 
             {/* input category */}
             <div>
