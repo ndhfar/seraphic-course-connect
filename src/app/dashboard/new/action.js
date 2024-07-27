@@ -2,11 +2,11 @@
 
 import { uploadFile } from "@/libs/uploadFile";
 import { prisma } from "@/utils/prisma";
-// import { auth } from "@/libs/auth";
+import { auth } from "@/libs/auth";
 import { redirect } from "next/navigation";
 
 export async function NewCourseAction(_, formData) {
-  // const user = await auth();
+  const user = await auth();
 
   // ambil data dari form newcourses
   const title = formData.get("title");
@@ -38,7 +38,7 @@ export async function NewCourseAction(_, formData) {
         },
       },
       user: {
-        connect: { id: "clz3tlrv4000beaxize8wwqx8" },
+        connect: { id: user.id },
       },
     },
   });

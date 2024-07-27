@@ -12,6 +12,7 @@ export const PageCourse = ({ singleCourse }) => {
     const day = String(d.getDate()).padStart(2, "0");
     return `${year}-${month}-${day}`;
   };
+  console.log(singleCourse);
 
   const startDate = formatDate(singleCourse.startDate);
   const endDate = formatDate(singleCourse.endDate);

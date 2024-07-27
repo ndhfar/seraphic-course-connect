@@ -30,6 +30,7 @@ export const FormNewCourse = ({ categories }) => {
             {/* input image */}
             <label className="label-text">Image</label>
             <input
+              required
               accept="image/png"
               name="image"
               type="file"
