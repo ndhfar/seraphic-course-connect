@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { NewCourseAction } from "../action";
 import { useActionState } from "react";
 
@@ -12,10 +13,14 @@ export const FormNewCourse = ({ categories }) => {
   return (
     <main className="">
       <div className="m-2 py-8 px-10">
+        <Link href="/dashboard" className="text-primary">
+          ← back to dashboard
+        </Link>
         <h1 className="font-bold text-3xl mb-2">Add your Course</h1>
         <form
           action={formAddNewCourse}
-          className="space-y-3 grid grid-cols-2 gap-3">
+          className="space-y-3 grid grid-cols-2 gap-3"
+        >
           {/* col kiri */}
           <div className="col-span-1">
             {/* input title */}
@@ -121,7 +126,8 @@ export const FormNewCourse = ({ categories }) => {
               name="description"
               placeholder="Description"
               rows="5"
-              className="w-full textarea-add-course"></textarea>
+              className="w-full textarea-add-course"
+            ></textarea>
           </div>
           <div className="flex justify-end w-full col-span-2">
             <button className="btn btn-primary btn-wide" disabled={pending}>

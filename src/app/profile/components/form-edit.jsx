@@ -2,6 +2,7 @@
 
 import { useActionState } from "react";
 import UpdateUserDataAction from "../action";
+import Link from "next/link";
 
 export const FormEditProfile = ({ userData }) => {
   const [state, formAction, pending] = useActionState(
@@ -35,6 +36,7 @@ export const FormEditProfile = ({ userData }) => {
           <select
             name="role"
             defaultValue={userData?.role || ""}
+            disabled={userData?.role === null ? false : true}
             className={`w-full select select-sm select-accent select-bordered text-sm ${
               userData?.role === null ? "text-[#9ca3af]" : ""
             }`}
@@ -49,8 +51,11 @@ export const FormEditProfile = ({ userData }) => {
             <option value="participant">Participant</option>
           </select>
         </div>
-        <div className="flex">
-          <button className="ml-auto btn btn-primary btn-sm" disabled={pending}>
+        <div className="flex justify-between">
+          <Link href="/">
+            <button className="btn btn-info btn-sm">cancel</button>
+          </Link>
+          <button className=" btn btn-primary btn-sm" disabled={pending}>
             Save
           </button>
         </div>

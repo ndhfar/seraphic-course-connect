@@ -8,7 +8,7 @@ export const Header = async () => {
   const user = await auth();
 
   return (
-    <div className="navbar bg-base-100 border-b border-gray-300 py-3 px-4 md:px-10">
+    <div className="navbar fixed top-0 z-50 bg-base-100 border-b border-gray-300 py-3 px-4 md:px-10">
       {/* Logo */}
       <div className="flex-1">
         <Link href="/" className="text-base font-bold md:text-xl">

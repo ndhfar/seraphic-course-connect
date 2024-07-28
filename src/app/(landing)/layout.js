@@ -10,7 +10,7 @@ export default async function Layout({ children }) {
     <div className="flex flex-col justify-between h-screen">
       <div className="h-[100vh-212px]">
         <Header />
-        <main className="flex flex-col w-full lg:flex-row h-[100%-64px]">
+        <main className="flex flex-col w-full lg:flex-row h-[100%-64px] mt-16">
           <Sidebar categories={categories} />
           <section className="lg:w-4/5 p-4 lg:p-8">{children}</section>
         </main>
