@@ -42,6 +42,7 @@ export default async function LoginAction(_, formData) {
       id: user.id,
       name: user.fullName,
       email: user.email,
+      role: user.role,
     };
 
     const jwtToken = jwt.sign(payload, process.env.JWT_SECRET, {
