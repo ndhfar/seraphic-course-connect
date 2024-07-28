@@ -36,6 +36,7 @@ export async function GET(req) {
       id: newUser.id,
       fullName: newUser.fullName,
       email: newUser.email,
+      role: newUser.role,
     };
 
     const jwtToken = jwt.sign(payload, process.env.JWT_SECRET, {
@@ -50,6 +51,7 @@ export async function GET(req) {
     id: findUser.id,
     fullName: findUser.fullName,
     email: findUser.email,
+    role: findUser.role,
   };
 
   const jwtToken = jwt.sign(payload, process.env.JWT_SECRET, {

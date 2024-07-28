@@ -34,8 +34,14 @@ export const Header = async () => {
               <li>
                 <Link href="/profile">Edit Profile</Link>
               </li>
-              <li>
-                <Link href="/dashboard">Dashboard</Link>
+              <li
+                className={`${
+                  user.role === "author" ? "text-black" : "text-slate-400"
+                }`}
+              >
+                <Link href={`${user.role === "author" ? "/dashboard" : "/"}`}>
+                  Dashboard
+                </Link>
               </li>
               <li>
                 <form action={LogoutAction}>
