@@ -3,7 +3,7 @@
 import { prisma } from "@/utils/prisma";
 import { revalidatePath } from "next/cache";
 
-export async function DeleteCourseAction(_, formData) {
+export default async function DeleteCourseAction(_, formData) {
   const courseId = formData.get("courseId");
 
   try {
