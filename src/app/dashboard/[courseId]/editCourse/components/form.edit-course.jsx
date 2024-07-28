@@ -2,6 +2,7 @@
 
 import { EditCourseAction } from "../action";
 import { useActionState } from "react";
+import Link from "next/link";
 
 export const FormEditCourse = ({ categories, course }) => {
   const [state, FormEditCourse, pending] = useActionState(
@@ -23,10 +24,14 @@ export const FormEditCourse = ({ categories, course }) => {
   return (
     <main>
       <div className="m-2 py-8 px-10">
+        <Link href="/dashboard" className="text-primary">
+          ← back to dashboard
+        </Link>
         <h1 className="font-bold text-3xl mb-2">Edit your Course</h1>
         <form
           action={FormEditCourse}
-          className="space-y-3 grid grid-cols-2 gap-3">
+          className="space-y-3 grid grid-cols-2 gap-3"
+        >
           <input type="hidden" name="courseId" value={course.id} />
 
           {/* col kiri */}
@@ -49,7 +54,7 @@ export const FormEditCourse = ({ categories, course }) => {
               name="image"
               type="file"
               placeholder="image"
-              className="file-input file-input-bordered file-input-primary w-full"
+              className="file-input file-input-bordered file-input-primary w-full file-input-sm"
             />
 
             {/* input category */}
@@ -61,7 +66,8 @@ export const FormEditCourse = ({ categories, course }) => {
                     <option
                       key={c.id}
                       value={c.id}
-                      selected={c.id === course.categoryId}>
+                      selected={c.id === course.categoryId}
+                    >
                       {c.name}
                     </option>
                   );
@@ -144,7 +150,8 @@ export const FormEditCourse = ({ categories, course }) => {
               placeholder="Description"
               rows="5"
               className="w-full textarea-add-course"
-              defaultValue={course.description}></textarea>
+              defaultValue={course.description}
+            ></textarea>
           </div>
           <div className="flex justify-end w-full col-span-2">
             <button className="btn btn-primary btn-wide" disabled={pending}>

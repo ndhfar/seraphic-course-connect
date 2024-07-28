@@ -8,8 +8,8 @@ export default async function Page({ params }) {
   const categories = await prisma.category.findMany();
 
   return (
-    //navbar
-    <FormEditCourse categories={categories} course={course} />
-    //footer
+    <div>
+      <FormEditCourse categories={categories} course={course} />
+    </div>
   );
 }

@@ -2,6 +2,7 @@
 
 import { prisma } from "@/utils/prisma";
 import { auth } from "@/libs/auth";
+import { redirect } from "next/navigation";
 
 export default async function UpdateUserDataAction(_, formData) {
   const userInfo = await auth();
@@ -39,11 +40,6 @@ export default async function UpdateUserDataAction(_, formData) {
         role,
       },
     });
-
-    return {
-      success: true,
-      message: "Edit profile successful. Refresh this page.",
-    };
   } catch (error) {
     console.log(error);
     return {
@@ -51,4 +47,5 @@ export default async function UpdateUserDataAction(_, formData) {
       message: "Edit profile failed.",
     };
   }
+  redirect("/");
 }

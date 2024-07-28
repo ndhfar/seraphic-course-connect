@@ -8,15 +8,15 @@
   }
 
   .input-add-course {
-    @apply input input-primary w-full;
+    @apply input input-primary w-full input-sm;
   }
 
   .textarea-add-course {
-    @apply textarea textarea-primary w-full;
+    @apply textarea textarea-primary w-full textarea-sm;
   }
 
   .select-add-course {
-    @apply select select-primary w-full;
+    @apply select select-primary w-full select-sm;
   }
 
   .input-auth {

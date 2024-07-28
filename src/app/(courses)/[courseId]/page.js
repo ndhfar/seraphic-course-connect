@@ -1,7 +1,5 @@
 import { prisma } from "@/utils/prisma";
 import { PageCourse } from "./components/pageCourse";
-// import { Header } from "@/components/header";
-// import { Footer } from "@/components/footer";
 import { StarCircle } from "solar-icon-set/astronomy";
 import { ButtonFeedback } from "./components/button-feedback";
 import { auth } from "@/libs/auth";
@@ -40,7 +38,6 @@ export default async function Page({ params }) {
 
   return (
     <div>
-      {/* <Header /> */}
       <main className="mt-20">
         <PageCourse singleCourse={singleCourse} />
         <div className="mt-10 mb-2 mx-9">
@@ -84,7 +81,6 @@ export default async function Page({ params }) {
           <FeedbackCard params={params} />
         </div>
       </main>
-      {/* <Footer /> */}
     </div>
   );
 }
