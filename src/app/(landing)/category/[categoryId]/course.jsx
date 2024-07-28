@@ -16,7 +16,11 @@ export const Courses = async ({ categoryId }) => {
           <CourseCard course={course} key={course.id} />
         ))}
       </div>
-      {courses.length === 0 && <div className="text-slate-400 w-full bg-slate-100 p-8 rounded-lg text-center font-medium">No courses</div>}
+      {courses.length === 0 && (
+        <div className="text-slate-400 w-full bg-slate-100 p-8 rounded-lg text-center font-medium">
+          No courses
+        </div>
+      )}
     </>
   );
 };
