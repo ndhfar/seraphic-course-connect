@@ -26,6 +26,7 @@
   .select-auth {
     @apply select select-sm select-bordered select-accent w-full;
   }
+
   .link-menu {
     @apply block w-full p-2 hover:bg-blue-600 hover:text-white font-medium rounded-lg;
   }

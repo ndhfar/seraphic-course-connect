@@ -2,6 +2,7 @@
 
 import { useActionState } from "react";
 import { DeleteCourseAction } from "@/app/dashboard/action";
+import Link from "next/link";
 
 export const CardDashboard = ({ course }) => {
   const [formAction, pending] = useActionState(DeleteCourseAction, null);
@@ -28,7 +29,9 @@ export const CardDashboard = ({ course }) => {
 
         {/* button */}
         <div className="card-actions justify-end">
-          <button className="btn btn-outline btn-primary btn-sm">Edit</button>
+          <Link href={`/dashboard/${course.id}/editCourse`}>
+            <button className="btn btn-outline btn-primary btn-sm">Edit</button>
+          </Link>
           <form action={formAction}>
             <input name="courseId" value={course.id} type="hidden" />
             <button

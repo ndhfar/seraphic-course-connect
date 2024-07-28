@@ -22,7 +22,7 @@ export const Header = async () => {
 
         {/* Conditionally Rendered Buttons or Avatar */}
         {user ? (
-          <div className="dropdown dropdown-end">
+          <div className="dropdown dropdown-end relative z-50">
             {/* Avatar */}
             <Avatar user={user} />
 

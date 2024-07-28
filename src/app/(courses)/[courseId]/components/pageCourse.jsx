@@ -72,7 +72,7 @@ export const PageCourse = ({ singleCourse }) => {
           </div>
           <div className="flex gap-4 items-center">
             <LinkCircle size={28} />
-            <Link href={`${singleCourse.linkPlatform}`}>
+            <Link href={`${singleCourse.linkPlatform}`} target="_blank">
               <h3 className="text-blue-400 text-course">
                 {singleCourse.linkPlatform}
               </h3>
