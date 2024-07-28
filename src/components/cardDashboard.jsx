@@ -1,11 +1,11 @@
 "use client";
 
 import { useActionState } from "react";
-import { DeleteCourseAction } from "@/app/dashboard/action";
 import Link from "next/link";
+import DeleteCourseAction from "@/app/dashboard/action";
 
 export const CardDashboard = ({ course }) => {
-  const [formAction, pending] = useActionState(DeleteCourseAction, null);
+  const [state, formAction, pending] = useActionState(DeleteCourseAction, null);
 
   return (
     <div className="card card-compact bg-base-100 shadow-xl w-full h-auto">
