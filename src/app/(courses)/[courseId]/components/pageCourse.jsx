@@ -74,7 +74,7 @@ export const PageCourse = ({ singleCourse }) => {
             <LinkCircle size={28} />
             <Link href={`${singleCourse.linkPlatform}`} target="_blank">
               <h3 className="text-blue-400 text-course">
-                {singleCourse.linkPlatform}
+                {singleCourse.title}
               </h3>
             </Link>
           </div>
