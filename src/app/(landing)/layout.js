@@ -2,7 +2,6 @@ import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { Sidebar } from "@/components/sidebar";
 import { prisma } from "@/utils/prisma";
-import React from "react";
 
 export default async function Layout({ children }) {
   const categories = await prisma.category.findMany();

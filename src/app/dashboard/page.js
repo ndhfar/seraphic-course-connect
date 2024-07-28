@@ -7,15 +7,15 @@ import { redirect } from "next/navigation";
 import Link from "next/link";
 
 export default async function Page() {
-  // const user = await auth();
+  const user = await auth();
 
-  // if (!user) {
-  //   redirect('/');
-  // }
+  if (!user) {
+    redirect("/");
+  }
 
   const courses = await prisma.course.findMany({
     where: {
-      userId: "clz3tlrv4000beaxize8wwqx8",
+      userId: user.id,
     },
   });
 
@@ -33,7 +33,9 @@ export default async function Page() {
         {/* Add Card */}
         <Link href="/dashboard/new">
           <div className="flex justify-center items-center card bg-base-100 w-full shadow-xl">
-            <div className="btn btn-primary btn-outline text-primary w-full h-full">Add Your Course +</div>
+            <div className="btn btn-primary btn-outline text-primary w-full h-full">
+              Add Your Course +
+            </div>
           </div>
         </Link>
       </div>
